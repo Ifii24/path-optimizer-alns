@@ -1,0 +1,19 @@
+# Mac
+.DS_Store
+.AppleDouble
+.LSOverride
+~$*
+
+# Julia
+*.jl.cov
+*.jl.mem
+Manifest.toml
+/tmp/
+
+# Logs and outputs
+*.out
+*.log
+
+# Large scratch files
+*scratch*
+*TEST*
