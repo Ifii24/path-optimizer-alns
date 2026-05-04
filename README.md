@@ -1,25 +1,25 @@
 # Sequence Building for Routing with Narrow Time Windows
 
 **Master Thesis — DTU Management, Technical University of Denmark**  
-**Authors:** Ifigeneia Tziola & Julie Hustoft  
+**Authors:** Ifigeneia Tziola
 **Submitted:** February 2, 2025  
 **Supervisor:** Jesper Larsen  
-**Degrees:** MSc Business Analytics / MSc Industrial Engineering and Management
+**Degrees:** MSc Business Analytics
 
 ---
 
 ## Overview
 
-This repository contains the full code, data, and results for our master's thesis on the **Sequence Building with Narrow Time Windows** problem — a variant of the Traveling Salesman Problem with Time Windows (TSPTW).
+This repository contains the full code, data, and results for my master's thesis on the **Sequence Building with Narrow Time Windows** problem — a variant of the Traveling Salesman Problem with Time Windows (TSPTW).
 
 The objective is to construct a route starting and ending at a depot, visiting all orders exactly once while respecting (soft) time windows. Since violations are allowed but penalized, the goal is to minimize a weighted sum of:
 - Total distance
 - Travel duration
 - Time window violations
 
-### Our Approach
+### Approach
 
-We develop a two-stage solution framework:
+A two-stage solution framework:
 
 1. **LNS** (Large Neighbourhood Search) — builds an initial sequence using destruction/repair operators
 2. **ALNS** (Adaptive Large Neighbourhood Search) — refines the solution by adaptively selecting the best operators using a scoring mechanism with Simulated Annealing acceptance
@@ -30,8 +30,8 @@ We develop a two-stage solution framework:
 Tested on all **73 instances** from AMCS:
 - Finds feasible solutions for **all 73 instances**
 - Improves total distance in **23/25 instances** (3 min) and **24/25** (5 min) vs. AMCS's Thorough mode
-- Average distance reduction: **3.33%** (3 min), **3.61%** (5 min), **3.64%** (20 min)
-- Average travel time reduction: **5.80%** (3 & 5 min), **5.85%** (20 min)
+- Average distance reduction: **3.33%**
+- Average travel time reduction: **5.85%**
 
 ---
 
@@ -107,13 +107,6 @@ Each instance consists of three files:
 - `VehiclesandTerminals<set>_<id>.csv` — vehicle capacity and depot info
 
 ---
-
-## Authors
-
-| Name | Student ID | Degree |
-|------|-----------|--------|
-| Ifigeneia Tziola | s222569 | MSc Business Analytics |
-| Julie Hustoft | s194359 | MSc Industrial Engineering and Management |
 
 DTU Management, Technical University of Denmark  
 Akademivej, Building 358, 2800 Kgs. Lyngby, Denmark
