@@ -10,7 +10,7 @@
 
 ## Overview
 
-This repository contains the full code, data, and results for my master's thesis on the **Sequence Building with Narrow Time Windows** problem — a variant of the Traveling Salesman Problem with Time Windows (TSPTW).
+This repository contains the full code, data, and results for my master's thesis on the **Sequence Building with Narrow Time Windows** problem which is a variant of the Traveling Salesman Problem with Time Windows (TSPTW).
 
 The objective is to construct a route starting and ending at a depot, visiting all orders exactly once while respecting (soft) time windows. Since violations are allowed but penalized, the goal is to minimize a weighted sum of:
 - Total distance
@@ -21,9 +21,9 @@ The objective is to construct a route starting and ending at a depot, visiting a
 
 A two-stage solution framework:
 
-1. **LNS** (Large Neighbourhood Search) — builds an initial sequence using destruction/repair operators
-2. **ALNS** (Adaptive Large Neighbourhood Search) — refines the solution by adaptively selecting the best operators using a scoring mechanism with Simulated Annealing acceptance
-3. **LP post-optimization** — a linear program determines the optimal route start time, further reducing waiting times and violations
+1. **LNS** (Large Neighbourhood Search): builds an initial sequence using destruction/repair operators
+2. **ALNS** (Adaptive Large Neighbourhood Search): refines the solution by adaptively selecting the best operators using a scoring mechanism with Simulated Annealing acceptance
+3. **LP post-optimization**: a linear program determines the optimal route start time, further reducing waiting times and violations
 
 ### Key Results
 
@@ -38,7 +38,7 @@ Tested on all **73 instances** from AMCS:
 ## Repository Structure
 
 ```
-tsptw-alns-thesis/
+path-optimizer-alns/
 │
 ├── code/                        # All Julia source files
 │   ├── ALNS.jl                  # Main ALNS solver
@@ -102,9 +102,9 @@ solution = run_ALNS(data, time_limit=180)
 ### Data Format
 
 Each instance consists of three files:
-- `Orders<set>_<id>.csv` — order list with time windows and demand
-- `Distances<set>_<id>.csv` — pairwise distance matrix
-- `VehiclesandTerminals<set>_<id>.csv` — vehicle capacity and depot info
+- `Orders<set>_<id>.csv` : order list with time windows and demand
+- `Distances<set>_<id>.csv` : pairwise distance matrix
+- `VehiclesandTerminals<set>_<id>.csv` : vehicle capacity and depot info
 
 ---
 
