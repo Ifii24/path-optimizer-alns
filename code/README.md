@@ -6,8 +6,8 @@ All Julia source files for the LNS/ALNS framework.
 
 | File | Description |
 |------|-------------|
-| `LNS.jl` | Base Large Neighbourhood Search — builds initial solution |
-| `ALNS.jl` | Adaptive LNS — adaptively weights operators |
+| `LNS.jl` | Base Large Neighbourhood Search: builds initial solution |
+| `ALNS.jl` | Adaptive LNS: adaptively weights operators |
 | `ALNS_with_SA.jl` | ALNS + Simulated Annealing acceptance criterion |
 | `ALNS_with_SA_scores.jl` | ALNS + SA with adaptive operator scoring |
 | `ALNS_with_SA_timelimit.jl` | Time-limited version of ALNS+SA |
