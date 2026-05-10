@@ -1,14 +1,7 @@
-# utils.jl
-# Shared utility functions used across LNS and ALNS.
-# Previously these were copy-pasted into every single file - now they live here once.
-# All functions take a ProblemInstance instead of individual matrices/vectors.
-
 include("structs.jl")
 
 
 # ---- Distance and time -------------------------------------------------------
-
-# Total distance along a route, summing consecutive edge distances
 function compute_total_distance(route::Vector{Int64}, inst::ProblemInstance)::Int64
     total = 0
     for i in 2:length(route)
@@ -71,7 +64,6 @@ function two_opt_swap(route::Vector{Int64}, i::Int, j::Int)::Vector{Int64}
 end
 
 # Fast delta evaluation - only looks at the 2 edges that change, not the whole route
-# This is O(1) vs O(n) for recomputing total distance from scratch
 function delta_evaluation(route::Vector{Int64}, i::Int, j::Int, inst::ProblemInstance)::Int64
     old_dist = inst.d[route[i-1], route[i]] + inst.d[route[j], route[j+1]]
     new_dist = inst.d[route[i-1], route[j]] + inst.d[route[i], route[j+1]]
@@ -95,7 +87,7 @@ function two_opt_neighborhood(route::Vector{Int64}, inst::ProblemInstance)
     return neighbors, dists
 end
 
-# Pick the best neighbor if it improves on current - otherwise keep current
+# Pick the best neighbor if it improves on current otherwise keep current
 function select_best_neighbor(
     neighbors::Vector{Vector{Int64}},
     dists::Vector{Int64},
@@ -126,7 +118,7 @@ function two_swap(route::Vector{Int64}, i::Int, j::Int)::Vector{Int64}
     return new_route
 end
 
-# Generate all 2-swap neighbors - has to recompute full distance (no O(1) delta)
+# Generate all 2-swap neighbors
 function two_swap_neighborhood(route::Vector{Int64}, inst::ProblemInstance)
     neighbors = Vector{Vector{Int64}}()
     dists = Vector{Int64}()
