@@ -1,9 +1,3 @@
-# structs.jl
-# Defines the core data types used across the whole codebase.
-# Grouping everything into structs instead of passing 15 arguments everywhere
-# makes the function signatures actually readable.
-
-# Everything about the problem instance itself - the data, nothing else
 struct ProblemInstance
     n::Int64              # number of nodes (not counting the depot twice)
     d::Matrix{Int64}      # distance matrix (n x n)
@@ -14,7 +8,7 @@ struct ProblemInstance
     q::Float64            # normalization factor for distance in the cost function
 end
 
-# Parameters for the LNS/ALNS solver - tuning knobs basically
+# Parameters for the LNS/ALNS solver
 struct SolverParams
     time_limit::Float64           # max runtime in seconds
     initial_temperature::Float64  # starting temperature for simulated annealing
@@ -35,7 +29,7 @@ struct ALNSParams
     segment_size::Int64            # how often to update heuristic weights
 end
 
-# Tracks which solutions were found and when - used for post-run analysis
+# Tracks which solutions were found and when (post run analysis)
 struct HeuristicOutcome
     iteration::Int
     time::Float64
@@ -44,7 +38,7 @@ struct HeuristicOutcome
     cost::Float64
 end
 
-# Stores how heuristic weights evolved over segments - for plotting
+# Stores how heuristic weights evolved over segments (for plotting)
 struct WeightSnapshot
     iteration::Int
     destruction_weights::Vector{Float64}
